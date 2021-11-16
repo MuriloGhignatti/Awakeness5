@@ -19,7 +19,7 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	int32 Id = -1;
 
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, BlueprintGetter=GetItemInfo)
 	FItemInfo ItemInfo;
 
 protected:
@@ -34,4 +34,10 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent)
 	void OnUse(const int32 AmountUsed);
+
+	UFUNCTION(BlueprintGetter)
+	FItemInfo GetItemInfo()
+	{
+		return ItemInfo;
+	}
 };
